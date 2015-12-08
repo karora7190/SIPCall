@@ -26,7 +26,7 @@ public class IncomingCallReciever extends BroadcastReceiver {
                     try {
                         super.onRinging(call, caller);
                         Log.d("Inside on ringing", caller.getProfileName());
-                        IncomingCallReciever.username = caller.getDisplayName();
+                        call.answerCall(30);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }

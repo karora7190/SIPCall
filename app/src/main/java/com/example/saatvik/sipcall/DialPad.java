@@ -204,17 +204,6 @@ public class DialPad extends AppCompatActivity {
                     }
                 }
             });
-            final SipAudioCall.Listener myListener = new SipAudioCall.Listener() {
-                @Override
-                public void onRinging(SipAudioCall call, SipProfile caller) {
-                    try {
-                        Intent intent1 = new Intent(getBaseContext(), IncomingCall.class);
-                        startActivity(intent1);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
-            };
             call.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
