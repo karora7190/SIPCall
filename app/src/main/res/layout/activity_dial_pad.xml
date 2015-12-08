@@ -6,7 +6,157 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="com.example.saatvik.sipcall.DialPad">
 
-    <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
 
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="40dp"
+        android:id="@+id/tableLayout">
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_column="3">
+                <Button
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:text="1"
+                    android:id="@+id/button2"
+                    android:layout_column="0" />
+                <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:text="2"
+                android:id="@+id/button13"
+                android:layout_column="1" />
+                <Button
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:text="3"
+                    android:id="@+id/button4"
+                    android:layout_column="2" />
+                <Button
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:text="CLR"
+                    android:id="@+id/button15"
+                    android:layout_column="3" />
+
+            </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_column="3">
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:text="4"
+                android:id="@+id/button5"
+                android:layout_column="0" />
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:text="5"
+                android:id="@+id/button6"
+                android:layout_column="1" />
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:text="6"
+                android:id="@+id/button7"
+                android:layout_column="2" />
+
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_column="3">
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:text="7"
+                android:id="@+id/button8"
+                android:layout_column="0" />
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:text="8"
+                android:id="@+id/button3"
+                android:layout_column="1" />
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:text="9"
+                android:id="@+id/button9"
+                android:layout_column="2" />
+
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_column="3">
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:text="*"
+                android:id="@+id/button10"
+                android:layout_column="0" />
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:text="0"
+                android:id="@+id/button11"
+                android:layout_column="1" />
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:text="#"
+                android:id="@+id/button12"
+                android:layout_column="2" />
+
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_column="3">
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:id="@+id/button14"
+                android:layout_column="1"
+                android:background="@android:drawable/ic_menu_call" />
+
+        </TableRow>
+
+    </TableLayout>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="phone"
+        android:ems="10"
+        android:id="@+id/editText"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="45dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:hint="Enter the number" />
 </RelativeLayout>

@@ -4,13 +4,24 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import java.util.ArrayList;
 
 public class CallHistory extends AppCompatActivity {
 
+    public ListView history;
+    public ArrayList calllogs;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_call_history);
+        history=(ListView)findViewById(R.id.listView3);
+        calllogs=new ArrayList();
+        calllogs.add("No Call Records Found at this time.");
+        ArrayAdapter adapter=new ArrayAdapter(getBaseContext(),android.R.layout.simple_list_item_1,calllogs);
+        history.setAdapter(adapter);
     }
 
     @Override

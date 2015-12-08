@@ -4,13 +4,26 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import java.util.ArrayList;
 
 public class Favorites extends AppCompatActivity {
 
+    public static ArrayList contacts;
+    public ListView allFavorites;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favorites);
+        allFavorites = (ListView)findViewById(R.id.listView2);
+        contacts=new ArrayList();
+        if(contacts.size()==0) {
+            contacts.add("No Favorite Contacts Found....");
+        }
+        ArrayAdapter adapter=new ArrayAdapter(getBaseContext(),android.R.layout.simple_list_item_1,contacts);
+        allFavorites.setAdapter(adapter);
     }
 
     @Override
@@ -33,5 +46,13 @@ public class Favorites extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+    @Override
+    public void onResume(){
+        super.onResume();
+        if(contacts.size()>1) {
+            contacts.remove("No Favorite Contacts Found....");
+        }
+
     }
 }

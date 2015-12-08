@@ -1,15 +1,25 @@
 package com.example.saatvik.sipcall;
 
 import android.content.ContentResolver;
+import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.Window;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
+import android.widget.Toast;
+import android.widget.TwoLineListItem;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -27,6 +37,8 @@ public class Contacts extends AppCompatActivity {
         String [] from = new String[]{"name","number"};
         SimpleAdapter simpleAdapter = new SimpleAdapter(this,fetchContacts(),android.R.layout.simple_list_item_2,from,new int[]{android.R.id.text1,android.R.id.text2});
         showContacts.setAdapter(simpleAdapter);
+        registerForContextMenu(showContacts);
+
     }
 
     @Override
@@ -35,7 +47,32 @@ public class Contacts extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_contacts, menu);
         return true;
     }
-
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v,
+                                    ContextMenu.ContextMenuInfo menuInfo){
+        super.onCreateContextMenu(menu, v, menuInfo);
+        getMenuInflater().inflate(R.menu.contacts_context_menu,menu);
+    }
+    @Override
+    public boolean onContextItemSelected(MenuItem item){
+        try{
+            AdapterView.AdapterContextMenuInfo menuInfo = (AdapterView.AdapterContextMenuInfo) item
+                    .getMenuInfo();
+            switch (item.getItemId()){
+            case R.id.action_fav:
+                TwoLineListItem textView=(TwoLineListItem)menuInfo.targetView;
+                Favorites.contacts.add(textView.getText1().getText()+" "+textView.getText2().getText().toString());
+                Toast.makeText(getBaseContext(),textView.getText2().getText().toString(),Toast.LENGTH_LONG).show();
+                break;
+            case R.id.action_call:
+                break;
+        }
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        return super.onContextItemSelected(item);
+    }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will

@@ -32,7 +32,7 @@ public class HomeScreen extends TabActivity {
         contacts.setIndicator("Contacts");
         contacts.setContent(new Intent(this, Contacts.class));
         settings.setIndicator("Settings");
-        settings.setContent(new Intent(this, Settings.class));
+        settings.setContent(new Intent(this, SettingsActivity.class));
         tabHost.addTab(dialPad);
         tabHost.addTab(logs);
         tabHost.addTab(favorites);
